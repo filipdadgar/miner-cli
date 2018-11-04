@@ -7,11 +7,12 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists/*
     
 RUN apt-get -y install --no-install-recommends \
-    "^libxcb.*"                                \
-    libx11-xcb-dev                             \
-    libglu1-mesa-dev                           \
-    libxrender-dev                             \
-    libxi-dev
+        libxcb-randr0-dev \
+        libxcb-xtest0-dev \
+        libxcb-xinerama0-dev \
+        libxcb-shape0-dev \
+        libxcb-xkb-dev \
+      && rm -r /var/lib/apt/lists/*
 
 RUN wget -q --content-disposition https://minergate.com/download/deb-cli \
     && dpkg -i *.deb \
