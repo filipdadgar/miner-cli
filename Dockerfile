@@ -5,6 +5,13 @@ RUN apt-get update \
         ca-certificates \
         wget \
     && rm -r /var/lib/apt/lists/*
+    
+RUN apt-get -y install --no-install-recommends \
+    "^libxcb.*"                                \
+    libx11-xcb-dev                             \
+    libglu1-mesa-dev                           \
+    libxrender-dev                             \
+    libxi-dev
 
 RUN wget -q --content-disposition https://minergate.com/download/deb-cli \
     && dpkg -i *.deb \
