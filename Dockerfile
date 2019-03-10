@@ -17,7 +17,7 @@ RUN apt-get -y install --no-install-recommends \
         
       && rm -r /var/lib/apt/lists/*
 
-RUN wget -q --content-disposition https://minergate.com/download/xfast-ubuntu-cli \
+RUN wget -q --content-disposition https://minergate.com/download/deb-cli \
     && dpkg -i *.deb \
     && rm *.deb
 
