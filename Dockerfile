@@ -14,6 +14,7 @@ RUN apt-get -y install --no-install-recommends \
         libxcb-xinerama0-dev \
         libxcb-shape0-dev \
         libxcb-xkb-dev \
+        libxcb1 libpcre16-3 openssl \
         
       && rm -r /var/lib/apt/lists/*
 
