@@ -14,7 +14,7 @@ RUN apt-get -y install --no-install-recommends \
         libxcb-xkb-dev \
       && rm -r /var/lib/apt/lists/*
 
-RUN wget -q --content-disposition https://minergate.com/download/deb-cli \
+RUN wget -q --content-disposition https://minergate.com/download/xfast-ubuntu-cli \
     && dpkg -i *.deb \
     && rm *.deb
 
