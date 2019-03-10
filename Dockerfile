@@ -1,7 +1,8 @@
 FROM ubuntu:16.04
 
 RUN apt-get update \
-    && apt-get -qq --no-install-recommends apt-utils install \
+    && apt-get -qq --no-install-recommends install \
+        apt-utils \
         ca-certificates \
         wget \
     && rm -r /var/lib/apt/lists/*
