@@ -8,7 +8,6 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists/*
     
 RUN apt-get -y install --no-install-recommends \
-        libxcb-randr0 \
         libxcb-randr0-dev \
         libxcb-xtest0-dev \
         libxcb-xinerama0-dev \
