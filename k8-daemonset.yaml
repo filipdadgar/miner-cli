@@ -1,0 +1,22 @@
+---
+ apiVersion: apps/v1
+ kind: DaemonSet
+ metadata:
+   name: minercli-deployment
+   labels:
+     app: minercli
+ spec:
+   selector:
+      matchLabels:
+        app: minercli
+   template:
+     metadata:
+       labels:
+         app: minercli
+     spec:
+      containers:
+         - name: minercli
+           image: filipdadgar/miner-cli
+#           env:
+#              - name: TZ
+#                value: Europe/Amsterdam
