@@ -1,20 +1,13 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
-RUN apt-get update \
-    && apt-get -qq --no-install-recommends install \
-        ca-certificates \
-        wget \
-        curl \
-        libxcb1 \
-        libpcre16-3 \
-    && rm -r /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get -y install ca-certificates wget ocl-icd-libopencl1 netbase openssl && \
+    apt-get -y autoremove && \
+    apt-get clean
 
-RUN apt-get upgrade -qq -y
-
-RUN wget -q --content-disposition https://minergate.com/download/deb-cli \
-    && dpkg -i *.deb \
-    && rm *.deb
-
+RUN wget --no-check-certificate -q https://minergate.com/download/xfast-ubuntu-cli-amd -O minergate-cli.deb && \
+    dpkg -i minergate-cli.deb && \
+    rm minergate-cli.deb
 
 ENTRYPOINT ["minergate-cli"]
 CMD ["-user", "lashawn_sc@hotmail.com", "-bcn", "-fcn+xmr"]
